@@ -1,0 +1,385 @@
+------------------------------------------UTILISATEUR------------------------------------------------
+
+Api pour creez les utilisateurs:
+http://localhost:5000/api/auth/register (POST)
+exemple d'utilisateur cree:
+[
+    {
+        "id_utilisateur": 1,
+        "nom": "wouamba",
+        "prenom": "roy",
+        "date_naissance": "1990-05-15",
+        "lieu_naissance": "yaounde",
+        "photo": "1758196050875.jpeg",
+        "telephone": "657432316",
+        "role": "Medecin",
+        "sexe": "masculin",
+        "lieu_residence": "Odza",
+        "lieu_exercice": "Essos",
+        "annee_exercice": 2023,
+        "email": "wouamba@gmail.com",
+        "pays_obtention": "Cameroun",
+        "annee_obtention": 2021,
+        "faculte": "Cardiologue",
+        "numero_ordre": "23",
+        "en_cours": true,
+        "condamnation_penale": false,
+        "motif_condamnation": "null",
+        "motivation": "aider les autres",
+        "derniere_connexion": "2025-09-18T11:47:32.000Z",
+        "statut": true,
+        "date_creation": "2025-09-18T11:47:32.000Z",
+        "date_derniere_modification": "2025-09-18T11:47:32.000Z"
+    }
+]
+
+Api pour connecter les utilisateurs:
+http://localhost:5000/api/auth/login (POST)
+exemple:
+{
+    "email": "wouamba@gmail.com",
+    "password": "12345678"
+}
+
+reponse:
+{
+    "message": "Connexion réussie",
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZF91dGlsaXNhdGV1ciI6MSwiZW1haWwiOiJ3b3VhbWJhQGdtYWlsLmNvbSIsInJvbGUiOiJNZWRlY2luIiwiaWF0IjoxNzU4MTk2MjE2LCJleHAiOjE3NTgxOTk4MTZ9.h8BbkZQ6n20dj_yWr1lAAbm_p45PMyidu0Uapw1yknE",
+    "user": {
+        "id_utilisateur": 1,
+        "nom": "wouamba",
+        "prenom": "roy",
+        "email": "wouamba@gmail.com",
+        "role": "Medecin",
+        "photo": "1758196050875.jpeg"
+    }
+}
+
+Api pour observer tout les users:
+http://localhost:5000/api/utilisateurs (GET) si tu es connecté
+http://localhost:5000/api/public/utilisateurs (GET) si tu n'es pas connecté
+exemple:
+[
+    {
+        "id_utilisateur": 1,
+        "nom": "wouamba",
+        "prenom": "roy",
+        "date_naissance": "1990-05-15",
+        "lieu_naissance": "yaounde",
+        "photo": "1758196050875.jpeg",
+        "telephone": "657432316",
+        "role": "Medecin",
+        "sexe": "masculin",
+        "lieu_residence": "Odza",
+        "lieu_exercice": "Essos",
+        "annee_exercice": 2023,
+        "email": "wouamba@gmail.com",
+        "pays_obtention": "Cameroun",
+        "annee_obtention": 2021,
+        "faculte": "Cardiologue",
+        "numero_ordre": "23",
+        "en_cours": true,
+        "condamnation_penale": false,
+        "motif_condamnation": "null",
+        "motivation": "aider les autres",
+        "derniere_connexion": "2025-09-18T11:47:32.000Z",
+        "statut": true,
+        "date_creation": "2025-09-18T11:47:32.000Z",
+        "date_derniere_modification": "2025-09-18T11:47:32.000Z"
+    }
+]
+
+API pour modifier (PUT) / supprimer(DELETE) / details(GET) un utilisateur:
+http://localhost:5000/api/utilisateurs/id si tu es connecté
+http://localhost:5000/api/public/utilisateurs/id si tu n'es pas connecté
+
+-------------------------------------------ABONNEMENT--------------------------------------------------------
+API pour creer un abonnement: (POST)
+http://localhost:5000/api/abonnements si tu es connecté
+http://localhost:5000/api/public/abonnements si tu n'es pas connecté
+exemple:
+[
+    {
+        "id_abonnement": 1,
+        "tarif": "50000.00",
+        "statut": true,
+        "date_debut": "2025-09-01T00:00:00.000Z",
+        "date_fin": "2026-09-01T00:00:00.000Z",
+        "id_utilisateur": 1,
+        "date_creation": "2025-09-18T12:01:28.000Z",
+        "date_derniere_modification": "2025-09-18T12:01:28.000Z",
+        "utilisateur": {
+            "id_utilisateur": 1,
+            "nom": "wouamba",
+            "prenom": "roy",
+            "date_naissance": "1990-05-15",
+            "lieu_naissance": "yaounde",
+            "photo": "1758196050875.jpeg",
+            "telephone": "657432316",
+            "role": "Medecin",
+            "sexe": "masculin",
+            "lieu_residence": "Odza",
+            "lieu_exercice": "Essos",
+            "annee_exercice": 2023,
+            "email": "wouamba@gmail.com",
+            "password": "$2b$10$qQ6hiOpinRSYGJofegkxiOUP3PUdV479Ap1i9xdWADTk4Omy0JdF2",
+            "pays_obtention": "Cameroun",
+            "annee_obtention": 2021,
+            "faculte": "Cardiologue",
+            "numero_ordre": "23",
+            "en_cours": true,
+            "condamnation_penale": false,
+            "motif_condamnation": "null",
+            "motivation": "aider les autres",
+            "derniere_connexion": "2025-09-18T11:47:32.000Z",
+            "statut": true,
+            "date_creation": "2025-09-18T11:47:32.000Z",
+            "date_derniere_modification": "2025-09-18T11:47:32.000Z"
+        }
+    }
+]
+
+API pour observer les abonnements: (GET)
+http://localhost:5000/api/abonnements si tu es connecté
+http://localhost:5000/api/public/abonnements si tu n'es pas connecté
+reponse:
+
+------------------------------------------ARTICLE-------------------------------------------------------
+API pour creer un article: (POST)
+http://localhost:5000/api/articles si tu es connecté
+http://localhost:5000/api/public/articles si tu n'es pas connecté
+exemple:
+{
+  "titre": "Les bienfaits de la méditation pour les professionnels de santé",
+  "contenu": "De nombreuses études ont montré que la méditation peut réduire le stress, améliorer la concentration et favoriser le bien-être général, des aspects cruciaux pour les médecins et autres professionnels de la santé. Cet article explore des techniques simples et pratiques...",
+  "url_image": "https://example.com/images/meditation_article.jpg",
+  "date_publication": "2025-09-18T14:30:00Z",
+  "statut": true,
+  "id_utilisateur": 1
+}
+
+API pour observer les articles: (GET)
+http://localhost:5000/api/articles si tu es connecté
+http://localhost:5000/api/public/articles si tu n'es pas connecté
+reponse:
+{
+    "id_article": 1,
+    "titre": "Les bienfaits de la méditation pour les professionnels de santé",
+    "contenu": "De nombreuses études ont montré que la méditation peut réduire le stress, améliorer la concentration et favoriser le bien-être général, des aspects cruciaux pour les médecins et autres professionnels de la santé. Cet article explore des techniques simples et pratiques...",
+    "url_image": null,
+    "date_publication": "2025-09-18T14:30:00.000Z",
+    "statut": true,
+    "id_utilisateur": 1,
+    "date_creation": "2025-09-18T12:07:50.000Z",
+    "date_derniere_modification": "2025-09-18T12:07:50.000Z",
+    "utilisateur": {
+        "id_utilisateur": 1,
+        "nom": "wouamba",
+        "prenom": "roy",
+        "email": "wouamba@gmail.com",
+        "role": "Medecin",
+        "photo": "1758196050875.jpeg"
+    }
+}
+
+API pour modifier (PUT) / supprimer(DELETE) / details(GET) un article:
+http://localhost:5000/api/articles/id si tu es connecté
+http://localhost:5000/api/public/articles/id si tu n'es pas connecté
+
+-------------------------------------------------BESOIN---------------------------------------------
+
+API pour creer un besoin: (POST)
+http://localhost:5000/api/besoins si tu es connecté
+http://localhost:5000/api/public/besoins si tu n'es pas connecté
+exemple:
+{
+  "titre": "Besoin d'un psychologue spécialisé en burn-out",
+  "contenu": "Je recherche un psychologue ou un thérapeute expert dans la prise en charge des professionnels de santé souffrant d'épuisement professionnel. La prise de rendez-vous en ligne serait un plus. Merci d'avance."
+}
+
+API pour observer les besoins: (GET)
+http://localhost:5000/api/besoins si tu es connecté
+http://localhost:5000/api/public/besoins si tu n'es pas connecté
+reponse:
+{
+    "id_besoin": 1,
+    "titre": "Besoin d'un psychologue spécialisé en burn-out",
+    "contenu": "Je recherche un psychologue ou un thérapeute expert dans la prise en charge des professionnels de santé souffrant d'épuisement professionnel. La prise de rendez-vous en ligne serait un plus. Merci d'avance.",
+    "date_creation": "2025-09-18T13:01:33.866Z"
+}
+
+API pour modifier (PUT) / supprimer(DELETE) / details(GET) un besoin:
+http://localhost:5000/api/besoins/id si tu es connecté
+http://localhost:5000/api/public/besoins/id si tu n'es pas connecté
+
+-----------------------------------------------COMMENTAIRE----------------------------------------------
+API pour creer un commentaire: (POST)
+http://localhost:5000/api/commentaires si tu es connecté
+http://localhost:5000/api/public/commentaires si tu n'es pas connecté
+exemple:
+{
+  "contenu": "Ceci est un excellent article ! Je suis tout à fait d'accord avec les points soulevés sur l'importance de la méditation pour le bien-être.",
+  "statut": true,
+  "id_utilisateur": 1
+}
+
+API pour observer les commentaires: (GET)
+http://localhost:5000/api/commentaires si tu es connecté
+http://localhost:5000/api/public/commentaires si tu n'es pas connecté
+reponse:
+{
+    "id_commentaire": 1,
+    "contenu": "Ceci est un excellent article ! Je suis tout à fait d'accord avec les points soulevés sur l'importance de la méditation pour le bien-être.",
+    "statut": true,
+    "id_utilisateur": 1,
+    "date_creation": "2025-09-18T13:05:23.000Z",
+    "utilisateur": {
+        "id_utilisateur": 1,
+        "nom": "wouamba",
+        "prenom": "roy",
+        "email": "wouamba@gmail.com",
+        "photo": "1758199947273.jpeg"
+    }
+}
+
+API pour modifier (PUT) / supprimer(DELETE) / details(GET) un commentaire:
+http://localhost:5000/api/commentaires/id si tu es connecté
+http://localhost:5000/api/public/commentaires/id si tu n'es pas connecté
+
+
+-----------------------------------------------EVENEMENT----------------------------------------------
+API pour creer un evenement: (POST)
+http://localhost:5000/api/evenements si tu es connecté
+http://localhost:5000/api/public/evenements si tu n'es pas connecté
+exemple:
+{
+  "titre": "Webinaire sur les nouvelles avancées en cardiologie",
+  "description": "Ce webinaire explorera les dernières innovations en cardiologie, y compris les techniques d'imagerie avancées et les traitements non invasifs. Il sera animé par le Dr. Martin.",
+  "url_image": "https://example.com/images/webinaire-cardio.jpg",
+  "date_debut": "2025-11-05T10:00:00Z",
+  "date_fin": "2025-11-05T12:00:00Z",
+  "statut": true
+}
+
+API pour observer les evenements: (GET)
+http://localhost:5000/api/commentaires si tu es connecté
+http://localhost:5000/api/public/commentaires si tu n'es pas connecté
+reponse:
+[
+    {
+        "id_evenement": 1,
+        "titre": "Webinaire sur les nouvelles avancées en cardiologie",
+        "description": "Ce webinaire explorera les dernières innovations en cardiologie, y compris les techniques d'imagerie avancées et les traitements non invasifs. Il sera animé par le Dr. Martin.",
+        "url_image": "https://example.com/images/webinaire-cardio.jpg",
+        "date_debut": "2025-11-05T10:00:00.000Z",
+        "date_fin": "2025-11-05T12:00:00.000Z",
+        "statut": true,
+        "date_creation": "2025-09-18T13:11:50.000Z",
+        "date_derniere_modification": "2025-09-18T13:11:50.000Z"
+    }
+]
+
+API pour modifier (PUT) / supprimer(DELETE) / details(GET) un evenement:
+http://localhost:5000/api/evenements/id si tu es connecté
+http://localhost:5000/api/public/evenements/id si tu n'es pas connecté
+
+
+-----------------------------------------------PAIEMENT----------------------------------------------
+API pour creer un paiement: (POST)
+http://localhost:5000/api/paiements si tu es connecté
+http://localhost:5000/api/public/paiements si tu n'es pas connecté
+exemple:
+{
+  "date_transfert": "2025-09-18",
+  "heure": "14:30:00",
+  "id_utilisateur": 1
+}
+
+API pour observer les paiements: (GET)
+http://localhost:5000/api/paiements si tu es connecté
+http://localhost:5000/api/public/paiements si tu n'es pas connecté
+reponse:
+[
+    {
+        "id_paiement": 1,
+        "date_transfert": "2025-09-18T00:00:00.000Z",
+        "heure": "14:30:00",
+        "id_utilisateur": 1,
+        "date_creation": "2025-09-18T13:18:36.000Z",
+        "utilisateur": {
+            "id_utilisateur": 1,
+            "nom": "wouamba",
+            "prenom": "roy",
+            "email": "wouamba@gmail.com",
+            "role": "Medecin"
+        }
+    }
+]
+
+API pour modifier (PUT) / supprimer(DELETE) / details(GET) un paiement:
+http://localhost:5000/api/paiements/id si tu es connecté
+http://localhost:5000/api/public/paiements/id si tu n'es pas connecté
+
+
+-----------------------------------------------REPONSE----------------------------------------------
+API pour creer une reponse: (POST)
+http://localhost:5000/api/reponses si tu es connecté
+http://localhost:5000/api/public/reponses si tu n'es pas connecté
+exemple:
+{
+  "statut": true,
+  "id_evenement": 1,
+  "id_utilisateur": 1
+}
+
+API pour observer les reponses: (GET)
+http://localhost:5000/api/reponses si tu es connecté
+http://localhost:5000/api/public/reponses si tu n'es pas connecté
+reponse:
+[
+    {
+        "id_reponse": 1,
+        "contenu": "Bonjour, je suis un psychologue spécialisé dans le traitement du burn-out chez les professionnels de la santé. Je suis disponible pour des consultations en ligne. N'hésitez pas à me contacter pour plus de détails.",
+        "statut": "en attente",
+        "id_besoin": 1,
+        "date_creation": "2025-09-18T13:25:57.000Z",
+        "besoin": {
+            "id_besoin": 1,
+            "titre": "Besoin d'un psychologue spécialisé en burn-out",
+            "contenu": "Je recherche un psychologue ou un thérapeute expert dans la prise en charge des professionnels de santé souffrant d'épuisement professionnel. La prise de rendez-vous en ligne serait un plus. Merci d'avance.",
+            "date_creation": "2025-09-18T13:01:33.000Z"
+        }
+    }
+]
+API pour modifier (PUT) / supprimer(DELETE) / details(GET) une reponse:
+http://localhost:5000/api/reponses/id si tu es connecté
+http://localhost:5000/api/public/reponses/id si tu n'es pas connecté
+
+-----------------------------------------------SUPPORT----------------------------------------------
+API pour creer un support: (POST)
+http://localhost:5000/api/supports si tu es connecté
+http://localhost:5000/api/public/supports si tu n'es pas connecté
+exemple:
+{
+  "objet": "Problème de connexion au compte",
+  "contenu": "Bonjour, je n'arrive plus à me connecter à mon compte. J'ai essayé de réinitialiser mon mot de passe, mais je ne reçois pas l'e-mail. Pourriez-vous m'aider ? Merci.",
+  "date_envoi": "2025-09-18T14:45:00Z"
+}
+
+API pour observer les supports: (GET)
+http://localhost:5000/api/reponses si tu es connecté
+http://localhost:5000/api/public/reponses si tu n'es pas connecté
+reponse:
+[
+    {
+    "id_support": 1,
+    "objet": "Problème de connexion au compte",
+    "contenu": "Bonjour, je n'arrive plus à me connecter à mon compte. J'ai essayé de réinitialiser mon mot de passe, mais je ne reçois pas l'e-mail. Pourriez-vous m'aider ? Merci.",
+    "date_envoi": "2025-09-18T14:45:00.000Z",
+    "date_creation": "2025-09-18T13:29:20.734Z"
+}
+]
+API pour modifier (PUT) / supprimer(DELETE) / details(GET) un support:
+http://localhost:5000/api/supports/id si tu es connecté
+http://localhost:5000/api/public/supports/id si tu n'es pas connecté
+
